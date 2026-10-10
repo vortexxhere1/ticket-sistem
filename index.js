@@ -4,6 +4,20 @@ const fs = require('fs');
 const path = require('path');
 const config = require('./config.json');
 
+// --- RENDER PORT DİNLEME HATASINI ÇÖZMEK İÇİN HTTP SUNUCUSU ---
+const express = require('express');
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+app.get('/', (req, res) => {
+    res.send('Lashk Ticket Bot aktif ve çalışıyor!');
+});
+
+app.listen(PORT, () => {
+    console.log(`Web sunucusu ${PORT} portunda dinlemede.`);
+});
+// -------------------------------------------------------------
+
 const client = new Client({
     intents: [
         GatewayIntentBits.Guilds,
@@ -73,7 +87,7 @@ async function deployCommands() {
             Routes.applicationCommands(process.env.CLIENT_ID),
             { body: commands },
         );
-        console.log('✅ Slash komutları başarıyla yüklendi!');
+        console.log('🔄 Slash komutları başarıyla yüklendi!');
     } catch (error) {
         console.error('❌ Komut yükleme hatası:', error);
     }
