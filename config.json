@@ -9,43 +9,34 @@
   },
   "kategoriler": [
     {
-      "id": "bilgi",
-      "isim": "Bilgi",
-      "emoji": "📋",
-      "acilisSaati": "07:00", 
-      "kapanisSaati": "22:00"
+      "id": "klan_sorunlari",
+      "isim": "Klan Sorunları",
+      "emoji": "⚔️"
     },
     {
-      "id": "yetkili_sorun",
-      "isim": " Yetkili Sorunları", 
-      "emoji": "👮",
-      "acilisSaati": "07:00",
-      "kapanisSaati": "21:00"
-    },
-    {
-      "id": "klan_ilgi_sorun",
-      "isim": "Klan İlgili Sorunları", 
-      "emoji": "📚",
-      "acilisSaati": "07:00",
-      "kapanisSaati": "21:00"
+      "id": "yetkili_sorunlari",
+      "isim": "Yetkili Sorunları",
+      "emoji": "👮"
     },
     {
       "id": "sikayet",
-      "isim": "Şikayet", 
-      "emoji": "⛔",
-      "acilisSaati": "07:00",
-      "kapanisSaati": "21:00"
+      "isim": "Şikayet",
+      "emoji": "⚠️"
+    },
+    {
+      "id": "bilgi",
+      "isim": "Bilgi",
+      "emoji": "📋"
     }
   ],
-  "ticketKategorisi": "LASHK",
+  "ticketKategorisi": "TICKET",
   "mesajlar": {
-    "ticketOlustur": "🎫 **Ticket Sistemi**\n\n🔥 Destek almak için aşağıdaki menüden bir kategori seçin.Boşuna seçmeyiniz..",
+    "ticketOlustur": "🎫 **Ticket Sistemi**\n\n🔥 Destek almak için aşağıdaki menüden bir kategori seçin.",
     "ticketAcildi": "📋 Ticket açıldı! Yetkili ekibimiz en kısa sürede size yardımcı olacak.",
     "ticketKapatildi": "🔒 Bu ticket kapatıldı.",
     "kurulumTamamlandi": "✅ Kurulum başarıyla tamamlandı!",
     "yetkinizYok": "❌ Bu işlemi yapmak için yetkiniz bulunmuyor!",
     "kategoriYok": "❌ Ticket kategorisi bulunamadı!",
-    "zatenTicketVar": "❌ Zaten açık bir ticketiniz bulunmaktadır!",
-    "kapaliSaatler": "⏰ Şu anda kapalıyız! Destek saatleri: {acilisSaati} - {kapanisSaati}"
+    "zatenTicketVar": "❌ Zaten açık bir ticketiniz bulunmaktadır!"
   }
 }

@@ -10,14 +10,6 @@ function safeInteractionReply(interaction, options) {
     }
 }
 
-function safeInteractionUpdate(interaction, options) {
-    if (interaction.replied || interaction.deferred) {
-        return interaction.editReply(options);
-    } else {
-        return interaction.update(options);
-    }
-}
-
 function checkRateLimit(userId) {
     const now = Date.now();
     const userRequestData = userRequests.get(userId) || { count: 0, lastReset: now };
@@ -25,19 +17,14 @@ function checkRateLimit(userId) {
         userRequestData.count = 0;
         userRequestData.lastReset = now;
     }
-    if (userRequestData.count >= 3) {
-        return false;
-    }
-
+    if (userRequestData.count >= 3) return false;
     userRequestData.count++;
     userRequests.set(userId, userRequestData);
     return true;
 }
 
 function acquireTicketLock(userId) {
-    if (ticketCreationLock.has(userId)) {
-        return false;
-    }
+    if (ticketCreationLock.has(userId)) return false;
     ticketCreationLock.add(userId);
     return true;
 }
@@ -46,9 +33,8 @@ function releaseTicketLock(userId) {
     ticketCreationLock.delete(userId);
 }
 
-function createTicketEmbed(kategori, user, channel, guild) {
+function createTicketEmbed(kategori, user, guild) {
     const serverIcon = guild.iconURL({ dynamic: true }) || '';
-
     return new EmbedBuilder()
         .setTitle('🎫 **Ticket Destek Talebi**')
         .setDescription(`## 🎉 Hoş Geldiniz!\n\n> **Destek talebiniz başarıyla oluşturuldu.** Ekibimiz en kısa sürede size yardımcı olacaktır.`)
@@ -61,15 +47,11 @@ function createTicketEmbed(kategori, user, channel, guild) {
         .setColor('#9333EA')
         .setTimestamp()
         .setThumbnail(user.displayAvatarURL({ dynamic: true }))
-        .setFooter({ 
-            text: 'Lashk • Ticket Sistemi', 
-            iconURL: serverIcon
-        });
+        .setFooter({ text: 'Lashk • Ticket Sistemi', iconURL: serverIcon });
 }
 
 function createLogEmbed(ticketData, ticketOwner, closer, messageCount, hours, minutes, guild) {
     const serverIcon = guild.iconURL({ dynamic: true }) || '';
-
     return new EmbedBuilder()
         .setTitle('🔒 **Ticket Kapatıldı & Transcript**')
         .setDescription(`> **${ticketData.ticketNumarasi}** adlı ticket kapatıldı. Mesaj geçmişi dosyası ektedir.`)
@@ -83,10 +65,7 @@ function createLogEmbed(ticketData, ticketOwner, closer, messageCount, hours, mi
         )
         .setColor('#EF4444')
         .setTimestamp()
-        .setFooter({ 
-            text: 'Lashk • Ticket Log', 
-            iconURL: serverIcon
-        });
+        .setFooter({ text: 'Lashk • Ticket Log', iconURL: serverIcon });
 }
 
 async function generateTranscript(channel, messages, ticketOwner) {
@@ -109,7 +88,6 @@ async function generateTranscript(channel, messages, ticketOwner) {
             <div class="content">${msg.content || '<em>[Görsel / Ek İçerik]</em>'}</div>
         </div>`;
     });
-
     html += `</body></html>`;
     return html;
 }
@@ -206,9 +184,7 @@ async function handleTicketCategorySelection(interaction, data, guildId, config)
             }).catch(() => {});
         }
 
-        const ticketEmbed = createTicketEmbed(kategori, interaction.user, ticketKanali, interaction.guild);
-        
-        // Yalnızca KAPAT butonu ekledik
+        const ticketEmbed = createTicketEmbed(kategori, interaction.user, interaction.guild);
         const buttonRow = new ActionRowBuilder().addComponents(
             new ButtonBuilder()
                 .setCustomId('ticket_kapat')
@@ -257,7 +233,6 @@ async function handleTicketClose(interaction, data, guildId, config) {
     });
 
     try {
-        // Loglama işlemleri ve Transcript oluşturma
         let messages = new Map();
         try {
             messages = await interaction.channel.messages.fetch({ limit: 100 });
@@ -311,6 +286,6 @@ async function handleSelectMenus(interaction, data, guildId) {
     } else if (interaction.customId === 'setup_log_kanal') {
         data.guilds[guildId].logKanal = interaction.values[0];
         interaction.client.data.save(data);
-        await safeInteractionReply(interaction, { content: '✅ Log kanalı güncellendi.', flags: ['Ephemeral'] });
+        await safeInteractionReply(interaction, { content: '✅ Log kanalına kaydedildi.', flags: ['Ephemeral'] });
     }
 }
