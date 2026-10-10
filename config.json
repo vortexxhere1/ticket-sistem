@@ -1,0 +1,51 @@
+{
+  "embed": {
+    "renk": "#00d4ff",
+    "gorsel": "https://images-ext-1.discordapp.net/external/NUsT6t4vWsByqdVHRBqYrqDruCG3YDv_6Y_5IHEY9XM/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/773582512647569409/244e078839c10a618f0fdb7b6f5a13f1.png?format=webp&quality=lossless",
+    "footer": {
+      "metin": "LASHK Ticket",
+      "ikon": "https://images-ext-1.discordapp.net/external/NUsT6t4vWsByqdVHRBqYrqDruCG3YDv_6Y_5IHEY9XM/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/773582512647569409/244e078839c10a618f0fdb7b6f5a13f1.png?format=webp&quality=lossless"
+    }
+  },
+  "kategoriler": [
+    {
+      "id": "bilgi",
+      "isim": "Bilgi",
+      "emoji": "📋",
+      "acilisSaati": "07:00", 
+      "kapanisSaati": "22:00"
+    },
+    {
+      "id": "yetkili_sorun",
+      "isim": " Yetkili Sorunları", 
+      "emoji": "👮",
+      "acilisSaati": "07:00",
+      "kapanisSaati": "21:00"
+    },
+    {
+      "id": "klan_ilgi_sorun",
+      "isim": "Klan İlgili Sorunları", 
+      "emoji": "📚",
+      "acilisSaati": "07:00",
+      "kapanisSaati": "21:00"
+    },
+    {
+      "id": "sikayet",
+      "isim": "Şikayet", 
+      "emoji": "⛔",
+      "acilisSaati": "07:00",
+      "kapanisSaati": "21:00"
+    }
+  ],
+  "ticketKategorisi": "LASHK",
+  "mesajlar": {
+    "ticketOlustur": "🎫 **Ticket Sistemi**\n\n🔥 Destek almak için aşağıdaki menüden bir kategori seçin.Boşuna seçmeyiniz..",
+    "ticketAcildi": "📋 Ticket açıldı! Yetkili ekibimiz en kısa sürede size yardımcı olacak.",
+    "ticketKapatildi": "🔒 Bu ticket kapatıldı.",
+    "kurulumTamamlandi": "✅ Kurulum başarıyla tamamlandı!",
+    "yetkinizYok": "❌ Bu işlemi yapmak için yetkiniz bulunmuyor!",
+    "kategoriYok": "❌ Ticket kategorisi bulunamadı!",
+    "zatenTicketVar": "❌ Zaten açık bir ticketiniz bulunmaktadır!",
+    "kapaliSaatler": "⏰ Şu anda kapalıyız! Destek saatleri: {acilisSaati} - {kapanisSaati}"
+  }
+}

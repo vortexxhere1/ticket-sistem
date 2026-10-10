@@ -1,0 +1,52 @@
+{
+  "guilds": {
+    "1555593455852585053": {
+      "adminRol": "1556017309804535878",
+      "logKanal": "1556018720026140732",
+      "ticketKanallari": [],
+      "ayarlar": {
+        "maxTicketSayisi": 1,
+        "otomatikKapatma": false,
+        "transcriptAktif": true,
+        "autoDelete": true,
+        "kategoriGuncelleme": true
+      }
+    }
+  },
+  "tickets": {
+    "1558139951647039581": {
+      "userId": "1078739106294665256",
+      "kategori": " Yetkili Sorunları",
+      "kategoriId": "yetkili_sorun",
+      "createdAt": 1791559921672,
+      "messageCount": 1,
+      "guildId": "1555593455852585053",
+      "ticketNumarasi": "tursucuk1-ticket",
+      "durum": "acik"
+    },
+    "1558140392384372817": {
+      "userId": "1078739106294665256",
+      "kategori": " Yetkili Sorunları",
+      "kategoriId": "yetkili_sorun",
+      "createdAt": 1791560019318,
+      "messageCount": 0,
+      "guildId": "1555593455852585053",
+      "ticketNumarasi": "tursucuk1-ticket",
+      "durum": "acik"
+    }
+  },
+  "ticketHistory": {
+    "1558137460540571790": {
+      "userId": "1078739106294665256",
+      "kategori": "Bilgi",
+      "kategoriId": "bilgi",
+      "createdAt": 1791559320450,
+      "messageCount": 0,
+      "guildId": "1555593455852585053",
+      "ticketNumarasi": "tursucuk1-ticket",
+      "durum": "kapali",
+      "kapatilmaTarihi": 1791559359060,
+      "kapatanId": "1078739106294665256"
+    }
+  }
+}
