@@ -184,6 +184,7 @@ async function handleTicketCategorySelection(interaction, data, guildId, config)
             }).catch(() => {});
         }
 
+        // --- BURASI EKLENDİ / DÜZELTİLDİ: Kanal açılınca içine Embed ve Kapat Butonu gönderiliyor ---
         const ticketEmbed = createTicketEmbed(kategori, interaction.user, interaction.guild);
         const buttonRow = new ActionRowBuilder().addComponents(
             new ButtonBuilder()
@@ -192,7 +193,12 @@ async function handleTicketCategorySelection(interaction, data, guildId, config)
                 .setStyle(ButtonStyle.Danger)
         );
 
-        await ticketKanali.send({ embeds: [ticketEmbed], components: [buttonRow] });
+        await ticketKanali.send({ 
+            content: `${interaction.user} Destek talebiniz oluşturuldu!`, 
+            embeds: [ticketEmbed], 
+            components: [buttonRow] 
+        });
+        // ------------------------------------------------------------------------------------------
 
         if (!data.tickets) data.tickets = {};
         data.tickets[ticketKanali.id] = {
