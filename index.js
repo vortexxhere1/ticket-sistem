@@ -1,3 +1,4 @@
+require('dotenv').config();
 const { Client, GatewayIntentBits, Collection, REST, Routes } = require('discord.js');
 const fs = require('fs');
 const path = require('path');
@@ -26,6 +27,7 @@ client.data = {
         fs.writeFileSync('./data.json', JSON.stringify(data, null, 2));
     }
 };
+
 const commandsPath = path.join(__dirname, 'commands');
 if (!fs.existsSync(commandsPath)) {
     fs.mkdirSync(commandsPath);
@@ -37,6 +39,7 @@ for (const file of commandFiles) {
     const command = require(filePath);
     client.commands.set(command.data.name, command);
 }
+
 const eventsPath = path.join(__dirname, 'events');
 if (!fs.existsSync(eventsPath)) {
     fs.mkdirSync(eventsPath);
@@ -52,6 +55,7 @@ for (const file of eventFiles) {
         client.on(event.name, (...args) => event.execute(...args));
     }
 }
+
 async function deployCommands() {
     const commands = [];
     const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
@@ -61,12 +65,12 @@ async function deployCommands() {
         commands.push(command.data.toJSON());
     }
 
-    const rest = new REST({ version: '10' }).setToken(config.token);
+    const rest = new REST({ version: '10' }).setToken(process.env.DISCORD_TOKEN);
 
     try {
         console.log('🔄 Slash komutları yükleniyor...');
         await rest.put(
-            Routes.applicationCommands(config.clientId),
+            Routes.applicationCommands(process.env.CLIENT_ID),
             { body: commands },
         );
         console.log('✅ Slash komutları başarıyla yüklendi!');
@@ -75,5 +79,5 @@ async function deployCommands() {
     }
 }
 
-client.login(config.token);
+client.login(process.env.DISCORD_TOKEN);
 deployCommands();

@@ -8,7 +8,7 @@ module.exports = {
         client.user.setPresence({
             activities: [
                 {
-                    name: 'lashk',
+                    name: 'Lashk Destek Bot',
                     type: 4 
                 }
             ],
